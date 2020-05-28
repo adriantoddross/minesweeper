@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./App.scss";
 import NumberDisplay from "../NumberDisplay";
 
 const App: React.FC = () => {
+  const [cells, setCells] = useState();
+
   return (
     <div className="App">
       <div className="Header">
