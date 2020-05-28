@@ -7,7 +7,7 @@ interface NumberDisplayProps {
 };
 
 const NumberDisplay: React.FC<NumberDisplayProps> = ({ value }) => {
-  return <div className="NumberDisplay">{value}</div>;
+  return <div className="NumberDisplay">{value.toString().padStart(3, "0")}</div>;
 };
 
 export default NumberDisplay;
