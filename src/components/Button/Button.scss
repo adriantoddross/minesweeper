@@ -1,0 +1,7 @@
+@import "../../styles/index.scss";
+
+.Button {
+  @include borders;
+  height: 30px;
+  width: 30px;
+}

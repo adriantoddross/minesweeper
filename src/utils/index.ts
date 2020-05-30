@@ -2,7 +2,7 @@ import { MAX_COLUMNS, MAX_ROWS } from "../constants";
 import { CellValue, CellState, Cell } from "../types";
 
 export const generateCells = () => {
-  const cells: Cell = [];
+  const cells: Cell[][] = [];
 
   for (let row = 0; row < MAX_ROWS; row++) {
     cells.push([]);
@@ -13,4 +13,5 @@ export const generateCells = () => {
       })
     }
   }
+  return cells;
 };
