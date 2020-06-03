@@ -2,16 +2,20 @@ import React, { useState } from "react";
 
 import { generateCells } from "../../utils";
 import NumberDisplay from "../NumberDisplay";
-import Button from '../Button'
+import Button from "../Button";
 
 import "./App.scss";
 
 const App: React.FC = () => {
   const [cells, setCells] = useState(generateCells);
+  console.log("cells:", cells); // Why is this happening twice?
+
   const renderCells = (): React.ReactNode => {
-    return cells.map((row, rowIndex) => row.map((cell, columnIndex) => {
-      return <Button key={`${rowIndex}-${columnIndex}`}/>
-    }));
+    return cells.map((row, rowIndex) =>
+      row.map((cell, columnIndex) => {
+        return <Button key={`${rowIndex}-${columnIndex}`} />;
+      })
+    );
   };
 
   return (
