@@ -8,12 +8,11 @@ import "./App.scss";
 
 const App: React.FC = () => {
   const [cells, setCells] = useState(generateCells);
-  console.log("cells:", cells); // Why is this happening twice?
 
   const renderCells = (): React.ReactNode => {
     return cells.map((row, rowIndex) =>
       row.map((cell, columnIndex) => {
-        return <Button key={`${rowIndex}-${columnIndex}`} />;
+        return <Button key={`${rowIndex}-${columnIndex}`} state={cell.state} value={cell.value} row={rowIndex} column={columnIndex}/>;
       })
     );
   };
@@ -22,7 +21,7 @@ const App: React.FC = () => {
     <div className="App">
       <div className="Header">
         <NumberDisplay value={0} />
-        <span role="img" className="Face" aria-label="face icon">
+        <span role="img" className="Face" aria-label="face emoji">
           😁
         </span>
         <NumberDisplay value={23} />
