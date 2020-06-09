@@ -5,4 +5,19 @@
   @include buttons;
   height: 30px;
   width: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.visible {
+    border-color: #7b7b7b;
+    border-width: 1px;
+  }
+
+  span {
+    font-size: 16px;
+  }
 }
+
+
