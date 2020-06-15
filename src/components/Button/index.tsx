@@ -19,6 +19,8 @@ const Button: React.FC<ButtonProps> = ({ row, column, state, value }) => {
             💣
           </span>
         );
+      } else if (value === CellValue.none) {
+        return null;
       }
       return value;
     } else if (state === CellState.flagged) {
