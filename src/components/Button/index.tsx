@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({ row, column, state, value }) => {
     return null;
   };
   return (
-    <div className={`Button ${state === CellState.visible ? "visible" : ""} `}>
+    <div className={`Button ${state === CellState.visible ? "visible" : ""} value-${value}`}>
       {renderContent()}
     </div>
   );
