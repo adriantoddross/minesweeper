@@ -14,6 +14,7 @@ export const generateCells = () => {
       });
     }
   }
+
   // Randomly place 10 bombs.
   let bombsPlaced = 0;
   while (bombsPlaced < NUMBER_OF_BOMBS) {
@@ -36,5 +37,41 @@ export const generateCells = () => {
       bombsPlaced++;
     }
   }
+
+  // Calculate numbers for each cell
+  for (let rowIndex = 0; rowIndex < MAX_ROWS; rowIndex++) {
+    for (let columnIndex = 0; columnIndex < MAX_COLUMNS; columnIndex++) {
+      const currentCell = cells[rowIndex][columnIndex];
+
+      if (currentCell.value === CellValue.bomb) {
+        continue;
+      }
+      let numberOfBombs = 0;
+      const topLeftBomb =
+        rowIndex > 0 && columnIndex > 0
+          ? cells[rowIndex - 1][columnIndex - 1]
+          : null;
+      const topBomb = rowIndex > 0 ? cells[rowIndex - 1][columnIndex] : null;
+      const topRightBomb =
+        rowIndex > 0 && columnIndex < MAX_COLUMNS - 1
+          ? cells[rowIndex - 1][columnIndex + 1]
+          : null;
+      const leftBomb =
+        columnIndex > 0 ? cells[rowIndex][columnIndex - 1] : null;
+      const rightBomb =
+        columnIndex < MAX_COLUMNS - 1 ? cells[rowIndex][columnIndex + 1] : null;
+      const bottomLeftBomb =
+        rowIndex < MAX_ROWS - 1 && columnIndex > 0
+          ? cells[rowIndex + 1][columnIndex - 1]
+          : null;
+      const bottomBomb =
+        rowIndex < MAX_ROWS - 1 ? cells[rowIndex + 1][columnIndex] : null;
+      const bottomRightBomb =
+        rowIndex < MAX_ROWS - 1 && columnIndex < MAX_COLUMNS - 1
+          ? cells[rowIndex + 1][columnIndex + 1]
+          : null;
+    }
+  }
+
   return cells;
 };
