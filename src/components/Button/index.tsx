@@ -20,10 +20,13 @@ const Button: React.FC<ButtonProps> = ({ row, column, state, value }) => {
           </span>
         );
       }
+      return value;
     } else if (state === CellState.flagged) {
-      return <span role="img" className="Bomb" aria-label="bomb emoji">
-        🚩
-      </span>;
+      return (
+        <span role="img" className="Bomb" aria-label="bomb emoji">
+          🚩
+        </span>
+      );
     }
     return null;
   };
