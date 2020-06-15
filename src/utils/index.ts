@@ -10,7 +10,7 @@ export const generateCells = () => {
     for (let col = 0; col < MAX_COLUMNS; col++) {
       cells[row].push({
         value: CellValue.none,
-        state: CellState.visible, // Hide this after testing!
+        state: CellState.hidden,
       });
     }
   }
