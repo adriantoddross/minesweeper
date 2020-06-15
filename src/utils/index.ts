@@ -70,6 +70,38 @@ export const generateCells = () => {
         rowIndex < MAX_ROWS - 1 && columnIndex < MAX_COLUMNS - 1
           ? cells[rowIndex + 1][columnIndex + 1]
           : null;
+
+      if (topLeftBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+      if (topBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+      if (topRightBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+      if (leftBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+      if (rightBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+      if (bottomLeftBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+      if (bottomBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+      if (bottomRightBomb?.value === CellValue.bomb) {
+        numberOfBombs++;
+      }
+
+      if (numberOfBombs > 0) {
+        cells[rowIndex][columnIndex] = {
+          ...currentCell,
+          value: numberOfBombs,
+        };
+      }
     }
   }
 
