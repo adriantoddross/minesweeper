@@ -66,10 +66,13 @@ const App: React.FC = () => {
       if (!live) {
         return;
       }
-
       currentCells[rowParam][columnParam].state = CellState.flagged;
       setCells(currentCells);
       setBombCounter(bombCounter - 1);
+    } else if (currentCell.state === CellState.flagged) {
+      currentCells[rowParam][columnParam].state = CellState.visible;
+      setCells(currentCells);
+      setBombCounter(bombCounter + 1);
     }
   };
 
