@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { generateCells } from "../../utils";
 import NumberDisplay from "../NumberDisplay";
 import Button from "../Button";
-import { Face, Cell } from "../../types/";
+import { Face, Cell, CellState } from "../../types/";
 
 import "./App.scss";
 
@@ -12,6 +12,7 @@ const App: React.FC = () => {
   const [face, setFace] = useState<Face>(Face.smile);
   const [time, setTime] = useState<number>(0);
   const [live, setLive] = useState<boolean>(false);
+  const [bombCounter, setBombCounter] = useState<number>(10);
 
   useEffect(() => {
     const handleMouseDown = () => {
@@ -31,7 +32,7 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (live) {
+    if (live && time < 999) {
       const timer = setInterval(() => {
         setTime(time + 1);
       }, 1000);
@@ -55,6 +56,21 @@ const App: React.FC = () => {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
     e.preventDefault();
+
+    const currentCells = cells.slice();
+    const currentCell = cells[rowParam][columnParam];
+
+    if (currentCell.state === CellState.visible) {
+      return;
+    } else if (currentCell.state === CellState.hidden) {
+      if (!live) {
+        return;
+      }
+
+      currentCells[rowParam][columnParam].state = CellState.flagged;
+      setCells(currentCells);
+      setBombCounter(bombCounter - 1);
+    }
   };
 
   const handleFaceClick = (): void => {
@@ -86,7 +102,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div className="Header">
-        <NumberDisplay value={0} />
+        <NumberDisplay value={bombCounter} />
         <span
           role="img"
           className="Face"
