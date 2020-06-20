@@ -51,6 +51,12 @@ const App: React.FC = () => {
     }
   };
 
+  const handleCellContext = (rowParam: number, columnParam: number) => (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
+    e.preventDefault();
+  };
+
   const handleFaceClick = (): void => {
     if (live) {
       setLive(false);
@@ -68,6 +74,7 @@ const App: React.FC = () => {
             state={cell.state}
             value={cell.value}
             onClick={handleCellClick}
+            onContext={handleCellContext}
             row={rowIndex}
             column={columnIndex}
           />
