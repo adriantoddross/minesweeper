@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import { generateCells } from "../../utils";
+import { generateCells, openMultipleCells } from "../../utils";
 import NumberDisplay from "../NumberDisplay";
 import Button from "../Button";
-import { Face, Cell, CellState } from "../../types/";
+import { Face, Cell, CellState, CellValue } from "../../types/";
 
 import "./App.scss";
 
@@ -48,7 +48,25 @@ const App: React.FC = () => {
     columnParam: number
   ) => (): void => {
     if (!live) {
+      // Make sure you don't click on a bomb!
       setLive(true);
+    }
+
+    let currentCell = cells[rowParam][columnParam];
+    let newCells = cells.slice();
+
+    if ([CellState.flagged, CellState.visible].includes(currentCell.state)) {
+      return;
+    }
+
+    if (currentCell.value === CellValue.bomb) {
+      // handle bomb clicc
+    } else if (currentCell.value === CellValue.none) {
+      newCells = openMultipleCells(newCells, rowParam, columnParam);
+      setCells(newCells);
+    } else {
+      newCells[rowParam][columnParam].state = CellState.visible;
+      setCells(newCells);
     }
   };
 
