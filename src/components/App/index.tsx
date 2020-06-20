@@ -13,6 +13,7 @@ const App: React.FC = () => {
   const [time, setTime] = useState<number>(0);
   const [live, setLive] = useState<boolean>(false);
   const [bombCounter, setBombCounter] = useState<number>(10);
+  const [hasLost, setHasLost] = useState<boolean>(false);
 
   useEffect(() => {
     const handleMouseDown = () => {
@@ -43,6 +44,15 @@ const App: React.FC = () => {
     }
   }, [live, time]);
 
+  let newCells = cells.slice();
+
+  useEffect(() => {
+    if (hasLost) {
+      setLive(false);
+      setFace(Face.lost);
+    }
+  }, [hasLost]);
+
   const handleCellClick = (
     rowParam: number,
     columnParam: number
@@ -53,14 +63,16 @@ const App: React.FC = () => {
     }
 
     let currentCell = cells[rowParam][columnParam];
-    let newCells = cells.slice();
 
     if ([CellState.flagged, CellState.visible].includes(currentCell.state)) {
       return;
     }
 
     if (currentCell.value === CellValue.bomb) {
-      // handle bomb clicc
+      setHasLost(true);
+      newCells[rowParam][columnParam].red = true;
+      newCells = showAllBombs();
+      setCells(newCells);
     } else if (currentCell.value === CellValue.none) {
       newCells = openMultipleCells(newCells, rowParam, columnParam);
       setCells(newCells);
@@ -95,11 +107,10 @@ const App: React.FC = () => {
   };
 
   const handleFaceClick = (): void => {
-    if (live) {
-      setLive(false);
-      setTime(0);
-      setCells(generateCells);
-    }
+    setLive(false);
+    setTime(0);
+    setCells(generateCells);
+    setHasLost(false);
   };
 
   const renderCells = (): React.ReactNode => {
@@ -112,10 +123,26 @@ const App: React.FC = () => {
             value={cell.value}
             onClick={handleCellClick}
             onContext={handleCellContext}
+            red={cell.red}
             row={rowIndex}
             column={columnIndex}
           />
         );
+      })
+    );
+  };
+
+  const showAllBombs = (): Cell[][] => {
+    const currentCells = cells.slice();
+    return currentCells.map((row) =>
+      row.map((cell) => {
+        if (cell.value === CellValue.bomb) {
+          return {
+            ...cell,
+            state: CellState.visible,
+          };
+        }
+        return cell;
       })
     );
   };
