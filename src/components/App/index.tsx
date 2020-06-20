@@ -67,24 +67,18 @@ const App: React.FC = () => {
     columnParam: number
   ) => (): void => {
     let newCells = cells.slice();
+    let currentCell = newCells[rowParam][columnParam];
 
     if (hasLost) return;
     // start the game!
     if (!live) {
-      let isABomb = newCells[rowParam][columnParam].value === CellValue.bomb;
-      while (isABomb) {
+      while (currentCell.value === CellValue.bomb) {
+        console.warn("Hit a bomb!");
         newCells = generateCells();
-        console.log("new current cell:", newCells[rowParam][columnParam]);
-
-        if (newCells[rowParam][columnParam].value !== CellValue.bomb) {
-          isABomb = false;
-          break;
-        }
+        currentCell = newCells[rowParam][columnParam];
       }
       setLive(true);
     }
-
-    const currentCell = newCells[rowParam][columnParam];
 
     if ([CellState.flagged, CellState.visible].includes(currentCell.state)) {
       return;
