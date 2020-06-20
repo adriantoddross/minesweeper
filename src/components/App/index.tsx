@@ -51,6 +51,14 @@ const App: React.FC = () => {
     }
   };
 
+  const handleFaceClick = (): void => {
+    if (live) {
+      setLive(false);
+      setTime(0);
+      setCells(generateCells);
+    }
+  };
+
   const renderCells = (): React.ReactNode => {
     return cells?.map((row, rowIndex) =>
       row.map((cell, columnIndex) => {
@@ -72,7 +80,12 @@ const App: React.FC = () => {
     <div className="App">
       <div className="Header">
         <NumberDisplay value={0} />
-        <span role="img" className="Face" aria-label="face emoji">
+        <span
+          role="img"
+          className="Face"
+          aria-label="face emoji"
+          onClick={handleFaceClick}
+        >
           {face}
         </span>
         <NumberDisplay value={time} />
