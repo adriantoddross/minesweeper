@@ -25,8 +25,11 @@ Clone the repo and run ```npm i && npm start```.
 
 ### Stretch Goals
 
-- Allow players to change difficulty.
-- 
+- Allow players to change difficulty to beginner (9x9, 10 mines), intermediate (16x16, 40 mines) or hard (16x30, 90 mines)
+- Add toggle for a custom game, letting users decide the board size & number of mines
+- Only regiter onClick events when a player clicks inside of the board
+- Display how to play, tips & tricks to the right of the board
+- Add dark screen mode
 
 ## Questions? Get In Touch
 
