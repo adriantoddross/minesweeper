@@ -10,9 +10,6 @@ To get more practice with React & Typescript, I've decided to start creating gam
 
 <img src="https://res.cloudinary.com/adriantoddross/image/upload/v1592780631/Minesweeper.png" title="Minesweeper" alt="Minesweeper board" height="auto" width="40%">
 
-<img src="https://res.cloudinary.com/adriantoddross/image/upload/v1592781471/Minesweeper%20loss.png" title="Minesweeper" alt="Minesweeper board" height="auto" width="38%">
-
-
 ## What I Learned
 
 - React Hooks
