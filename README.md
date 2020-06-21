@@ -8,7 +8,7 @@
 
 To get more practice with React & Typescript, I've decided to start creating games! Minesweeper was a huge undertaking to start with, even though I was following a tutorial. However, I learned a lot and am more inspired than ever to keep going!
 
-<img src="https://res.cloudinary.com/adriantoddross/image/upload/v1592780631/Minesweeper.png" title="Minesweeper" alt="Minesweeper board" height="auto" width="40%">
+<img src="https://res.cloudinary.com/adriantoddross/image/upload/v1592782603/Screen_Shot_2020-06-21_at_7.36.35_PM.png" title="Minesweeper" alt="Minesweeper board" height="auto" width="40%">
 
 ## What I Learned
 
@@ -22,6 +22,11 @@ To get more practice with React & Typescript, I've decided to start creating gam
 
 ## Installation & Setup
 Clone the repo and run ```npm i && npm start```.
+
+### Stretch Goals
+
+- Allow players to change difficulty.
+- 
 
 ## Questions? Get In Touch
 
