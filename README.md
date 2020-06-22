@@ -1,44 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://res.cloudinary.com/adriantoddross/image/upload/v1592780913/Minesweeper%20Smiley.png" title="Minesweeper" alt="Minesweeper board">
 
-## Available Scripts
+# Minesweeper Remake
 
-In the project directory, you can run:
+> I re-created this classic game using a tutorial by [Justin Kim](https://www.youtube.com/watch?v=hg41egLtM9o).
 
-### `npm start`
+> Created with Create-React-App, Javascript, Typescript & SCSS
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To get more practice with React & Typescript, I've decided to start creating games! Minesweeper was a huge undertaking to start with, even though I was following a tutorial. However, I learned a lot and am more inspired than ever to keep going!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<img src="https://res.cloudinary.com/adriantoddross/image/upload/v1592782603/Screen_Shot_2020-06-21_at_7.36.35_PM.png" title="Minesweeper" alt="Minesweeper board" height="auto" width="40%">
 
-### `npm test`
+## What I Learned
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React Hooks
+- CSS Grid
+- CSS Flexbox
+- SASS/SCSS mixins
+- SASS/SCSS variables
+- Typescript Enum type
+- Typescript Interfaces
 
-### `npm run build`
+## Installation & Setup
+Clone the repo and run ```npm i && npm start```.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Stretch Goals
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Allow players to change difficulty to beginner (9x9, 10 mines), intermediate (16x16, 40 mines) or hard (16x30, 90 mines)
+- Add toggle for a custom game, letting users decide the board size & number of mines
+- Only regiter onClick events when a player clicks inside of the board
+- Display how to play, tips & tricks to the right of the board
+- Add dark screen mode
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Questions? Get In Touch
 
-### `npm run eject`
+I love content creation and use social media often. Feel free to reach out!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Portfolio at <a href="https://www.adriantoddross.com/" target="_blank">`adriantoddross.com`</a>
+- LinkedIn at <a href="https://www.linkedin.com/in/adriantoddross/" target="_blank">`linkedin.com/in/adriantoddross/`</a>
+- Instagram at <a href="https://www.instagram.com/adriantoddross/" target="_blank">`@adriantoddross`</a>
+- Twitter at <a href="https://twitter.com/adriantoddross" target="_blank">`@adriantoddross`</a>
+- Facebook at <a href="https://www.facebook.com/adriantoddross" target="_blank">`@adriantoddross`</a>
+- and <a href="http://twitter.com/fvcproductions" target="_blank">`YouTube`</a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
