@@ -135,6 +135,7 @@ const App: React.FC = () => {
   ): void => {
     e.preventDefault();
 
+    let newCells = cells.slice();
     const currentCells = cells.slice();
     const currentCell = cells[rowParam][columnParam];
 
@@ -148,6 +149,14 @@ const App: React.FC = () => {
       setCells(currentCells);
       setBombCounter(bombCounter - 1);
     } else if (currentCell.state === CellState.flagged) {
+      if (currentCell.value === CellValue.bomb) {
+        setHasLost(true);
+        newCells[rowParam][columnParam].red = true;
+        newCells = showAllBombs();
+        setCells(newCells);
+        return;
+      }
+
       currentCells[rowParam][columnParam].state = CellState.visible;
       setCells(currentCells);
       setBombCounter(bombCounter + 1);
