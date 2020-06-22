@@ -166,6 +166,7 @@ const App: React.FC = () => {
   const handleFaceClick = (): void => {
     setLive(false);
     setTime(0);
+    setBombCounter(10);
     setCells(generateCells);
     setHasLost(false);
     setHasWon(false);
